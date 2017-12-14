@@ -126,15 +126,5 @@ img {
   display: -ms-flexbox;
   display: flex; }
 
-#header {
-  position: fixed;
-  top: 0;
-  left: 0; }
-
-.admin-bar #header {
-  top: 32px; }
-
-#page_content.home .home_sidebar {
-  background: rgba(39, 41, 62, 0.95); }
 
 /*# sourceMappingURL=style.css.map */

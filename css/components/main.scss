@@ -106,9 +106,11 @@ img {
     .col-lg-6:nth-child(2n+1){clear:left;}
 }
 
-.row-eq-height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+.row-eq-height, .flex {
+    @media all and (min-width: 768px) {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
 }

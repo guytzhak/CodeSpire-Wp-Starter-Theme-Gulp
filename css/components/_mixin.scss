@@ -1,0 +1,39 @@
+// Mixin
+
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flex($values) {
+    -webkit-box-flex: $values;
+    -moz-box-flex:  $values;
+    -webkit-flex:  $values;
+    -ms-flex:  $values;
+    flex:  $values;
+}
+
+@mixin flexalign($values) {
+    -webkit-box-align: $values;
+    -webkit-align-items: $values;
+    -ms-flex-align: $values;
+    align-items: $values;
+}
+
+@mixin flexjustify($values) {
+    -webkit-box-pack: $values;
+    -webkit-justify-content: $values;
+    -ms-flex-pack: $values;
+    justify-content: $values;
+}
+
+@mixin order($val) {
+    -webkit-box-ordinal-group: $val;
+    -moz-box-ordinal-group: $val;
+    -ms-flex-order: $val;
+    -webkit-order: $val;
+    order: $val;
+}
