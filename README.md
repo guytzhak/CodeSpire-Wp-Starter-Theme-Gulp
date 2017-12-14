@@ -25,6 +25,11 @@ Upload theme file to your Wordpress Themes directory and activate via admin pane
 
 ## ChangeLog
 
+### 1.0.5 - 14/12/2017
+- CleanUp WP-Header to boost the time-load
+- Remove  - Create CodeSpire Framework. // added in branch 1.0.4 and removed in 1.0.5
+- Removed - Add admin pages to create new custom post types and taxonomies when create new theme. // added in branch 1.0.4 and removed in 1.0.5
+
 ### 1.0.4 - 31/03/2017
 - Change all function.php to OOP Methodology.
 - Create CodeSpire Framework.
