@@ -52,4 +52,18 @@ function cc_mime_types($mimes) {
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
+/**
+ * Auto Add Alt to images from iamge title
+*/
+
+add_filter('wp_get_attachment_image_attributes', 'auto_add_alt_to_image_from_image_title', 99, 2);
+function auto_add_alt_to_image_from_image_title($arr1, $arr2) {
+
+    if( empty($arr1['alt']) ) {
+        $arr1['alt'] = $arr2->post_title;
+    }
+
+    return $arr1;
+}
+
 ?>
