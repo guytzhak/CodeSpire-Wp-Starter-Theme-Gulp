@@ -16,10 +16,20 @@ function swallowError (error) {
     this.emit('end')
 }
 
-gulp.task('concatScripts', function () {
+gulp.task('bt4concatScripts', function () {
     return gulp.src([
-        'js/bootstrap.js',
-        'js/scripts.js'
+        'js/bootstrap4/alert.js',
+        'js/bootstrap4/button.js',
+        'js/bootstrap4/carousel.js',
+        'js/bootstrap4/collapse.js',
+        'js/bootstrap4/dropdown.js',
+        'js/bootstrap4/index.js',
+        'js/bootstrap4/modal.js',
+        'js/bootstrap4/popover.js',
+        'js/bootstrap4/scrollspy.js',
+        'js/bootstrap4/tab.js',
+        'js/bootstrap4/tooltip.js',
+        'js/bootstrap4/util.js',
     ])
         .pipe(maps.init())
         .pipe(concat('app.js'))
@@ -28,13 +38,12 @@ gulp.task('concatScripts', function () {
         .pipe(gulp.dest('js'));
 });
 
-gulp.task('minifyScripts', ['concatScripts'], function (cb) {
-    return gulp.src('js/app.js')
+gulp.task('minifyScripts', function (cb) {
+    return gulp.src('js/scripts.js')
         .pipe(maps.init())
-        .pipe(autoprefixer())
         .on('error', swallowError)
         .pipe(uglify())
-        .pipe(rename('app.min.js'))
+        .pipe(rename('scripts.min.js'))
         .pipe(maps.write('./maps'))
         .pipe(gulp.dest('js'))
         .pipe(browserSync.stream({match: 'js/app.min.js'}));
@@ -43,6 +52,7 @@ gulp.task('minifyScripts', ['concatScripts'], function (cb) {
 gulp.task('compileSass', function (cb) {
     return gulp.src('style.scss')
         .pipe(maps.init())
+        .pipe(autoprefixer())
         .pipe(sass())
         .on('error', swallowError)
         .pipe(maps.write('./'))
@@ -57,7 +67,7 @@ gulp.task('watchFiles', function () {
 
 gulp.task('sync', function() {
     var options = {
-        proxy: 'localhost/benny',
+        proxy: 'tomer.test',
         port: 3000,
         files: [
             '**/*.php',
