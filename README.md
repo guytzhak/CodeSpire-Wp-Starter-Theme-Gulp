@@ -25,6 +25,9 @@ Upload theme file to your Wordpress Themes directory and activate via admin pane
 
 ## ChangeLog
 
+### 1.0.6 - 18/04/2018
+- Changed CSS+JS Files to Bootstrap 4.1.0 Version
+
 ### 1.0.5 - 14/12/2017
 - CleanUp WP-Header to boost the time-load
 - Remove  - Create CodeSpire Framework. // added in branch 1.0.4 and removed in 1.0.5
