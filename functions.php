@@ -13,6 +13,7 @@ Class CodeSpire_FrameWork {
         add_action( 'after_setup_theme', array($this, 'cs_theme_setup') );
         add_action( 'wp_enqueue_scripts', array($this, 'cs_style_and_scripts'));
         add_action( 'init', array($this, 'cs_menus') );
+	add_filter( 'wpcf7_autop_or_not', '__return_false' );
         $this->helper();
         define('ACF_EARLY_ACCESS', '5');
     }
