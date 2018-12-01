@@ -1,0 +1,13 @@
+<label for="your-name">Your Name (required)</label>
+[text* your-name id:your-name placeholder "Name"]
+
+<label for="your-phone"> Telephone </label>
+[tel your-phone id:your-phone placeholder "Telephone"]
+
+<label for="your-email">Your Email (required)</label>
+[email* your-email id:your-email placeholder "Email"]
+
+<label for="your-message">Your Message</label>
+[textarea your-message id:your-message placeholder "Name"]
+
+[submit "Send"]
