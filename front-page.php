@@ -15,7 +15,6 @@
             </div>
         </div>
     </div>
-    Guygg
 
 <?php endwhile; else : ?>
     <p><?php _e( 'Sorry, no pages matched your criteria.', 'cs' ); ?></p>

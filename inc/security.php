@@ -42,6 +42,23 @@ add_filter( 'login_errors', 'show_less_login_info' );
 function remove_api() {
 	remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 	remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
-	remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
+	remove_action( 'template_redirect', 'rest_output_link_header', 11 );
 }
 add_action( 'after_setup_theme', 'remove_api' );
+
+
+// Disalbe access to author page
+add_action('template_redirect', 'cs_disable_author_page');
+
+function cs_disable_author_page() {
+	global $wp_query;
+	
+	if ( is_author() ) {
+		/* @var \WP_Query $wp_query */
+		$wp_query->set_404();
+		status_header( 404 );
+		nocache_headers();
+		//wp_redirect(home_url('404'));
+		//locate_template( '404', 1, 1 );
+	}
+}

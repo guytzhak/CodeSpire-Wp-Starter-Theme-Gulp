@@ -6,6 +6,11 @@
  * Includes
  */
 
-@import 'css/components/mixin';
-@import 'css/components/main';
-@import 'css/components/wp-core';
+// General & Global
+@import 'assets/css/scss/mixin';
+@import 'assets/css/scss/main';
+@import 'assets/css/scss/typo';
+@import 'assets/css/scss/btns';
+
+// Pages & Templates
+//@import 'assets/css/scss/pages/home';

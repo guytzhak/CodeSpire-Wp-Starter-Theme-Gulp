@@ -2,6 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
+
+
 // Core Functions
 function cs_embed_html( $html ) {
     return '<div class="embed-responsive embed-responsive-16by9">' . $html . '</div>';
@@ -23,15 +25,21 @@ function cs_remove_unnecessary_code_setup () {
     remove_action( 'wp_print_styles', 'print_emoji_styles' );
     remove_action('wp_head', 'feed_links_extra', 3);
     remove_action('set_comment_cookies', 'wp_set_comment_cookies');
-    add_filter('jpeg_quality', create_function( '', 'return 85;' ) );
+    add_filter('jpeg_quality', function() {
+		return 85;
+	} );
 }
 add_action('after_setup_theme', 'cs_remove_unnecessary_code_setup');
+
 // Allow Upload SVG
 function cc_mime_types($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
+
 add_filter('upload_mimes', 'cc_mime_types');
+
+
 // exclude theme scandir form optimize speed up
 add_filter( 'theme_scandir_exclusions', 'ws_exclude_dir_scan', 10, 1 );
 function ws_exclude_dir_scan( $exclusions ) {
@@ -43,6 +51,8 @@ function ws_exclude_dir_scan( $exclusions ) {
   $exclusions[] = 'js';
   return $exclusions;
 }
+
+
 /**
  * Auto Add Alt to images from iamge title
 */
@@ -53,4 +63,5 @@ function auto_add_alt_to_image_from_image_title($arr1, $arr2) {
     }
     return $arr1;
 }
+
 ?>
