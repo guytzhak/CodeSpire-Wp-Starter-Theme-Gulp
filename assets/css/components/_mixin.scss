@@ -37,3 +37,11 @@
     -webkit-order: $val;
     order: $val;
 }
+
+@mixin flexwrap($val) {
+    -webkit-flex-wrap: $val;
+    -moz-flex-wrap: $val;
+    -ms-flex-wrap: $val;
+    -o-flex-wrap: $val;
+    flex-wrap: $val;
+}

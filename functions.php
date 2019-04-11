@@ -61,12 +61,12 @@ Class CodeSpire_FrameWork {
     /** Call to JS & CSS **/
     function cs_style_and_scripts() {
 
-        wp_enqueue_style( 'bootstrap-css', get_stylesheet_directory_uri() .'/css/bootstrap.min.css' );
+        wp_enqueue_style( 'bootstrap-css', get_stylesheet_directory_uri() .'/assets/css/bootstrap.min.css' );
         wp_enqueue_style( 'main-css', get_stylesheet_uri() );
 
 
-        wp_enqueue_script( 'bootstrap-js', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '4.1.0', true );
-        wp_enqueue_script( 'myscripts', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true );
+        wp_enqueue_script( 'bootstrap-js', get_stylesheet_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'), '4.1.0', true );
+        wp_enqueue_script( 'myscripts', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array('jquery'), '1.0.0', true );
 
     }
 
