@@ -25,6 +25,11 @@ Upload theme file to your Wordpress Themes directory and activate via admin pane
 
 ## ChangeLog
 
+### 1.1.0 - 18/04/2018
+- 📦 Add lazyload own code
+- 📦 Add debounce js method to decrease using memory on js event listener like 'scroll'...
+
+
 ### 1.0.6 - 18/04/2018
 - Changed CSS+JS Files to Bootstrap 4.1.0 Version
 
