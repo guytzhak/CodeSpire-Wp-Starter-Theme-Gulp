@@ -45,3 +45,9 @@
     -o-flex-wrap: $val;
     flex-wrap: $val;
 }
+
+@mixin flexdirection($val) {
+    -webkit-flex-direction: $val;
+    -ms-flex-direction: $val;
+    flex-direction: $val;
+}
