@@ -8,7 +8,9 @@ var gulp = require('gulp'),
     maps   = require('gulp-sourcemaps'),
     del    = require('del'),
     browserSync   = require('browser-sync'),
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'),
+    plumber = require('gulp-plumber'),
+    mmq = require('gulp-merge-media-queries');
 
 function swallowError (error) {
     //Prints details of the error in the console
@@ -51,51 +53,39 @@ gulp.task('minifyScripts', function (cb) {
 
 gulp.task('compileSass', function (cb) {
     return gulp.src('style.scss')
-        .pipe(maps.init())
-        .pipe(autoprefixer())
-        .pipe(sass())
-        .on('error', swallowError)
-        .pipe(maps.write('./'))
-        .pipe(gulp.dest(''))
-        .pipe(browserSync.stream({match: 'style.css'}));
+            .pipe(plumber())
+            .pipe(sass())
+            .pipe(mmq({
+                log: true
+            }))
+            .pipe(autoprefixer())
+            .pipe(maps.init())
+            .pipe(maps.write('./'))
+            .pipe(gulp.dest(''))
+            .pipe(browserSync.stream({match: 'style.css'}));
+});
+
+gulp.task('compileEditorSass', function (cb) {
+    return gulp.src('editor-styles.scss')
+            .pipe(plumber())
+            .pipe(sass())
+            .pipe(mmq({
+                log: true
+            }))
+            .pipe(autoprefixer())
+            .pipe(maps.init())
+            .pipe(maps.write('./'))
+            .pipe(gulp.dest(''))
+            .pipe(browserSync.stream({match: 'editor-styles.css'}));
 });
 
 gulp.task('watchFiles', function () {
-    gulp.watch(['css/components/*.scss', '*.scss'], ['compileSass']).on('change', browserSync.reload);;
-    gulp.watch(['js/app*.js*', 'js/bootstrap.js', 'js/scripts.js'], ['minifyScripts']).on('change', browserSync.reload);;
+    gulp.watch(['assets/css/scss/components/*.scss', 'assets/css/scss/pages/*.scss', 'assets/css/scss/*.scss', '*.scss'], ['compileSass', 'compileEditorSass']).on('change', browserSync.reload);
+    gulp.watch(['assets/js/app*.js*', 'assets/js/bootstrap.js', 'assets/js/scripts.js'], ['minifyScripts']).on('change', browserSync.reload);
 });
 
-gulp.task('sync', function() {
-    var options = {
-        proxy: 'tomer.test',
-        port: 3000,
-        files: [
-            '**/*.php',
-        ],
-        ghostMode: {
-            clicks: false,
-            location: false,
-            forms: false,
-            scroll: false
-        },
-        injectChanges: true,
-        logFileChanges: true,
-        logLevel: 'debug',
-        logPrefix: 'gulp-patterns',
-        notify: true,
-        reloadDelay: 0
-    };
-    browserSync(options);
-});
+gulp.task("build", ['minifyScripts', 'compileSass', 'compileEditorSass']);
 
-gulp.task('clean', function() {
-    del(['style.css*', 'js/app*.js*']);
-});
-
-gulp.task("build", ['minifyScripts', 'compileSass']);
-
-gulp.task('serve', ['watchFiles', 'sync']);
-
-gulp.task("default", ["clean"], function() {
+gulp.task("default", ["watchFiles"], function() {
     gulp.start('build');
 });

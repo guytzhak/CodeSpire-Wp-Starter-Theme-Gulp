@@ -1,0 +1,49 @@
+#site-header {
+	height: 95px;
+	padding: 23px 45px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 101;
+	background: $white;
+	
+	.admin-bar & {
+		margin-top: 32px;
+	}
+	.header {
+		&-titles {
+			&__logo {
+				margin: 0;
+				padding: 0;
+				color: $black;
+				font-size: 26px;
+				font-weight: bold;
+				line-height: 1.2;
+			}
+			
+			&__slogen {
+				font-size: 18px;
+				line-height: 21px;
+				color: $red;
+			}
+		}
+		&-navigation-wrapper {
+			ul {
+				list-style: none;
+				li {
+					font-size: 20px;
+					line-height: 1.185;
+					padding: 0 17px;
+					a {
+						color: $black;
+					}
+				}
+			}
+		}
+	}
+}
+
+.cover-modal {
+	display: none;
+}

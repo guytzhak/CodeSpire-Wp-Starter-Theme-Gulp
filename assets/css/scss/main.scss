@@ -4,33 +4,61 @@ Theme URI: http://CodeSpire.co.il/
 Author: Guy Ytzhak
 Author URI: http://CodeSpire.co.il/
 Description: Wordpress Theme For AnyOne By CodeSpire!
-Version: 1.0.2
+Version: 1.1.0
 Text Domain: cs
 */
 
+
 /** Main **/
 
-//@import url(https://fonts.googleapis.com/css?family=Varela+Round&subset=hebrew);
+@if $is_web {
+    body, html {
+        font-family: 'Arial', sans-serif;
+        font-weight: normal;
+        color: #000;
+        font-size: 20px;
+        line-height: 1.4;
+        -webkit-font-smoothing: antialiased;
+        background-color: #fff;
+        &.rtl {
+            text-align: right;
+        }
+    }
+    body {
+        padding-top: 95px;
+    }
+}
 
-body, html {
-    //font-family: 'Arial', sans-serif;
+.editor-styles-wrapper {
+    font-family: 'simpler', sans-serif;
     font-weight: normal;
     color: #000;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 20px;
+    line-height: 1.4;
     -webkit-font-smoothing: antialiased;
     background-color: #fff;
     &.rtl {
         text-align: right;
     }
+    p {
+        font-size: inherit;
+    }
 }
 
+a {
+    &, &:hover, &:focus, &:active {
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -ms-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+}
 
 ::selection {
     background: #b3d4fc;
     text-shadow: none;
 }
-
 
 img {
     max-width: 100%;
@@ -60,4 +88,11 @@ img {
     text-decoration: none;
     -webkit-box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
     box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+}
+
+.container {
+    width: 1410px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
 }

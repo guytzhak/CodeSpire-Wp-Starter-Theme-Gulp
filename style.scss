@@ -2,15 +2,22 @@
  * Vars
  */
 
+$black: #000;
+$white: #fff;
+$red: #FF4E4E;
+$is_admin: false;
+$is_web: true;
+
 /**
  * Includes
  */
 
-// General & Global
+@import 'assets/vendors/bootstrap4/bootstrap';
 @import 'assets/css/scss/mixin';
 @import 'assets/css/scss/main';
 @import 'assets/css/scss/typo';
 @import 'assets/css/scss/btns';
 
-// Pages & Templates
-//@import 'assets/css/scss/pages/home';
+@import 'assets/css/scss/components/header';
+
+/*@import 'assets/css/scss/pages/home';*/
