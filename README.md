@@ -25,7 +25,7 @@ Upload theme file to your Wordpress Themes directory and activate via admin pane
 
 ## ChangeLog
 
-### 1.1.0 - 18/04/2018
+### 1.1.0 - 08/02/2020
 - 🤖 Remove lazyload own code
 - 🤖 Remove debounce js method to decrease using memory on js event listener like 'scroll'...
 - 📦 Add CodespireJS Framework to handle some required JS for modals, popup, toggle and etc..
