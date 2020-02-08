@@ -26,6 +26,17 @@ Upload theme file to your Wordpress Themes directory and activate via admin pane
 ## ChangeLog
 
 ### 1.1.0 - 18/04/2018
+- 🤖 Remove lazyload own code
+- 🤖 Remove debounce js method to decrease using memory on js event listener like 'scroll'...
+- 📦 Add CodespireJS Framework to handle some required JS for modals, popup, toggle and etc..
+- 📦 Add Gutenberg Support & Blocks
+- 🤖 Remove Jquery use in theme
+- 🤖 Remove Bootstrap4Js files call
+- 📦 Add bootstrap4 css in vendors assets
+- 📦 Add Codespire transient handler for performence improvement
+- 👌 Fix/Update Header file with the new "CodespireJS Framework"
+
+### 1.0.7 - 18/04/2018
 - 📦 Add lazyload own code
 - 📦 Add debounce js method to decrease using memory on js event listener like 'scroll'...
 
