@@ -65,26 +65,13 @@ gulp.task('compileSass', function (cb) {
             .pipe(browserSync.stream({match: 'style.css'}));
 });
 
-gulp.task('compileEditorSass', function (cb) {
-    return gulp.src('editor-styles.scss')
-            .pipe(plumber())
-            .pipe(sass())
-            .pipe(mmq({
-                log: true
-            }))
-            .pipe(autoprefixer())
-            .pipe(maps.init())
-            .pipe(maps.write('./'))
-            .pipe(gulp.dest(''))
-            .pipe(browserSync.stream({match: 'editor-styles.css'}));
-});
 
 gulp.task('watchFiles', function () {
-    gulp.watch(['assets/css/scss/components/*.scss', 'assets/css/scss/pages/*.scss', 'assets/css/scss/*.scss', '*.scss'], ['compileSass', 'compileEditorSass']).on('change', browserSync.reload);
+    gulp.watch(['assets/css/scss/components/*.scss', 'assets/css/scss/pages/*.scss', 'assets/css/scss/*.scss', '*.scss'], ['compileSass']).on('change', browserSync.reload);
     gulp.watch(['assets/js/app*.js*', 'assets/js/bootstrap.js', 'assets/js/scripts.js'], ['minifyScripts']).on('change', browserSync.reload);
 });
 
-gulp.task("build", ['minifyScripts', 'compileSass', 'compileEditorSass']);
+gulp.task("build", ['minifyScripts', 'compileSass']);
 
 gulp.task("default", ["watchFiles"], function() {
     gulp.start('build');

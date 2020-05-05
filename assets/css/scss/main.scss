@@ -11,22 +11,20 @@ Text Domain: cs
 
 /** Main **/
 
-@if $is_web {
-    body, html {
-        font-family: 'Arial', sans-serif;
-        font-weight: normal;
-        color: #000;
-        font-size: 20px;
-        line-height: 1.4;
-        -webkit-font-smoothing: antialiased;
-        background-color: #fff;
-        &.rtl {
-            text-align: right;
-        }
+body, html {
+    font-family: 'Arial', sans-serif;
+    font-weight: normal;
+    color: #000;
+    font-size: 20px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    &.rtl {
+        text-align: right;
     }
-    body {
-        padding-top: 95px;
-    }
+}
+body {
+    padding-top: 95px;
 }
 
 .editor-styles-wrapper {
